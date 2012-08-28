@@ -153,6 +153,42 @@
                     "codeSystem": "2.16.840.1.113883.6.96",
                     "code":32398004
                 }
+            },
+
+            {
+                "product": {
+                    "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
+                    "codeSystemName": "RxNorm",
+                    "codeSystem": "2.16.840.1.113883.6.88",
+                    "code": 573621
+                },
+                "date": {
+                    "value": 20110301
+                },
+                "directions": {
+                    "text": "2 puffs QID PRN wheezing"
+                },
+                "instructions": {
+                    "text": "Generic Substitition Allowed"
+                },
+                "drugVehicle": {
+                    "name": "Diethylene Glycol",
+                    "codeSystemName": "SNOWMED CT",
+                    "codeSystem": "2.16.840.1.113883.6.96",
+                    "code":5955009
+                },
+                "status": {
+                    "name": "Active",
+                    "codeSystemName":"SNOMED CT", 
+                    "codeSystem":"2.16.840.1.113883.6.96",  
+                    "code":55561003
+                },
+                "indication": {
+                    "name": " Bronchitis",
+                    "codeSystemName": "SNOWMED CT",
+                    "codeSystem": "2.16.840.1.113883.6.96",
+                    "code":32398004
+                }
             }
         ],
         "immunizations": [
@@ -209,6 +245,25 @@
                     "codeSystem":"2.16.840.1.113883.6.96",  
                     "code":413322009
                 }                
+            },
+
+            {
+                "problem": {
+                    "name": "Pneumonia",
+                    "codeSystemName": "SNOWMED CT",
+                    "codeSystem": "2.16.840.1.113883.6.96",
+                    "code": 233604007
+                },
+                "date":{
+                    "value": 19980301,
+                    "onsetAge": 52
+                },
+                "status": {
+                    "name": "Resolved",
+                    "codeSystemName":"SNOMED CT", 
+                    "codeSystem":"2.16.840.1.113883.6.96",  
+                    "code":413322009
+                }                
             }
         ],
         "procedures": [
@@ -228,9 +283,39 @@
                     "codeSystem": "2.16.840.1.113883.6.96",
                     "code": 416949008
                 }
+            },
+
+            {
+                "procedure": {
+                    "name": "Colonic polypectomy",
+                    "codeSystemName": "SNOWMED CT",
+                    "codeSystem": "2.16.840.1.113883.6.96",
+                    "code": 274025005
+                },
+                "date": {
+                    "value": 19980301
+                },
+                "targetSite": {
+                    "name": "Abdomen and pelvis",
+                    "codeSystemName": "SNOWMED CT",
+                    "codeSystem": "2.16.840.1.113883.6.96",
+                    "code": 416949008
+                }
             }
         ],
         "encounters": [
+            {
+                "activity": {
+                    "name": "Later - Office consultation - 15m",
+                    "codeSystemName": "CPT",
+                    "codeSystem": "2.16.840.1.113883.6.12",
+                    "code": 99241
+                },
+                "date": {
+                    "value": 20000408
+                }
+            },
+
             {
                 "activity": {
                     "name": "Office consultation - 15m",
@@ -314,7 +399,24 @@
 <div id="content">
     <div id="firstName">firstName</div>
     <div id="lastName">lastName</div>
-    <div id="allergies"></div>
+
+    <h2>Allergies</h2>
+    <ol id="allergies"></ol>
+
+    <h2>Medications</h2>
+    <ol id="medications"></ol>
+
+    <h2>Immunizations</h2>
+    <ol id="immunizations"></ol>
+
+    <h2>Problems</h2>
+    <ol id="problems"></ol>
+
+    <h2>Procedures</h2>
+    <ol id="procedures"></ol>
+
+    <h2>Encounters</h2>
+    <ol id="encounters"></ol>
 </div>
 </body>
 <!-- End Body Layout -->
@@ -322,9 +424,27 @@
 <!-- Script that takes Blue Button data and places it in the body -->
 
 <script>
+    var utils = {
+        get: function (elementId) {
+            return document.getElementById(elementId);
+        },
+        newElem: function (elementName, text) {
+            var elem = document.createElement(elementName);
+            if (text) {
+                elem.appendChild(utils.newText(text));
+            }
+
+            return elem;
+        },
+        newText: function (text) {
+            return document.createTextNode(text);
+        }
+    };
+
     document.getElementById("firstName").innerHTML = BlueButton.demographics.firstName;
     document.getElementById("lastName").innerHTML = BlueButton.demographics.lastName;
 
+    var i;
     for (i=0; i < BlueButton.allergies.length; i++)
     {
         var newDiv = document.createElement('div');
@@ -332,6 +452,70 @@
         document.getElementById("allergies").appendChild(newDiv);
     }
 
+    function dateSortFunc(a, b) {
+        return a.date.value - b.date.value;
+    }
+
+    function renderMedications() {
+        var medications = BlueButton.medications;
+        medications.sort(dateSortFunc);
+        var list = utils.get('medications');
+        var i;
+        for (i = 0; i < medications.length; i++) {
+            var medication = medications[i];
+            list.appendChild(utils.newElem('li', medication.product.name));
+        }
+    }
+
+    function renderImmunizations() {
+        var immunizations = BlueButton.immunizations;
+        immunizations.sort(dateSortFunc);
+        var list = utils.get('immunizations');
+        var i;
+        for (i = 0; i < immunizations.length; i++) {
+            var immunization = immunizations[i];
+            list.appendChild(utils.newElem('li', immunization.product.name));
+        }
+    }
+
+    function renderProblems() {
+        var problems = BlueButton.problems;
+        problems.sort(dateSortFunc);
+        var list = utils.get('problems');
+        var i;
+        for (i = 0; i < problems.length; i++) {
+            var problem = problems[i];
+            list.appendChild(utils.newElem('li', problem.problem.name));
+        }
+    }
+
+    function renderProcedures() {
+        var procedures = BlueButton.procedures;
+        procedures.sort(dateSortFunc);
+        var list = utils.get('procedures');
+        var i;
+        for (i = 0; i < procedures.length; i++) {
+            var procedure = procedures[i];
+            list.appendChild(utils.newElem('li', procedure.procedure.name));
+        }
+    }
+
+    function renderEncounters() {
+        var encounters = BlueButton.encounters;
+        encounters.sort(dateSortFunc);
+        var list = utils.get('encounters');
+        var i;
+        for (i = 0; i < encounters.length; i++) {
+            var encounter = encounters[i];
+            list.appendChild(utils.newElem('li', encounter.activity.name));
+        }
+    }
+
+    renderMedications();
+    renderImmunizations();
+    renderProblems();
+    renderProcedures();
+    renderEncounters();
 
 </script>
 
