@@ -153,42 +153,6 @@
                     "codeSystem": "2.16.840.1.113883.6.96",
                     "code":32398004
                 }
-            },
-
-            {
-                "product": {
-                    "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
-                    "codeSystemName": "RxNorm",
-                    "codeSystem": "2.16.840.1.113883.6.88",
-                    "code": 573621
-                },
-                "date": {
-                    "value": 20110301
-                },
-                "directions": {
-                    "text": "2 puffs QID PRN wheezing"
-                },
-                "instructions": {
-                    "text": "Generic Substitition Allowed"
-                },
-                "drugVehicle": {
-                    "name": "Diethylene Glycol",
-                    "codeSystemName": "SNOWMED CT",
-                    "codeSystem": "2.16.840.1.113883.6.96",
-                    "code":5955009
-                },
-                "status": {
-                    "name": "Active",
-                    "codeSystemName":"SNOMED CT", 
-                    "codeSystem":"2.16.840.1.113883.6.96",  
-                    "code":55561003
-                },
-                "indication": {
-                    "name": " Bronchitis",
-                    "codeSystemName": "SNOWMED CT",
-                    "codeSystem": "2.16.840.1.113883.6.96",
-                    "code":32398004
-                }
             }
         ],
         "immunizations": [
@@ -245,25 +209,6 @@
                     "codeSystem":"2.16.840.1.113883.6.96",  
                     "code":413322009
                 }                
-            },
-
-            {
-                "problem": {
-                    "name": "Pneumonia",
-                    "codeSystemName": "SNOWMED CT",
-                    "codeSystem": "2.16.840.1.113883.6.96",
-                    "code": 233604007
-                },
-                "date":{
-                    "value": 19980301,
-                    "onsetAge": 52
-                },
-                "status": {
-                    "name": "Resolved",
-                    "codeSystemName":"SNOMED CT", 
-                    "codeSystem":"2.16.840.1.113883.6.96",  
-                    "code":413322009
-                }                
             }
         ],
         "procedures": [
@@ -283,39 +228,9 @@
                     "codeSystem": "2.16.840.1.113883.6.96",
                     "code": 416949008
                 }
-            },
-
-            {
-                "procedure": {
-                    "name": "Colonic polypectomy",
-                    "codeSystemName": "SNOWMED CT",
-                    "codeSystem": "2.16.840.1.113883.6.96",
-                    "code": 274025005
-                },
-                "date": {
-                    "value": 19980301
-                },
-                "targetSite": {
-                    "name": "Abdomen and pelvis",
-                    "codeSystemName": "SNOWMED CT",
-                    "codeSystem": "2.16.840.1.113883.6.96",
-                    "code": 416949008
-                }
             }
         ],
         "encounters": [
-            {
-                "activity": {
-                    "name": "Later - Office consultation - 15m",
-                    "codeSystemName": "CPT",
-                    "codeSystem": "2.16.840.1.113883.6.12",
-                    "code": 99241
-                },
-                "date": {
-                    "value": 20000408
-                }
-            },
-
             {
                 "activity": {
                     "name": "Office consultation - 15m",
@@ -389,6 +304,41 @@
         font-size: 14px;
         line-height: 1.2;
     }
+
+    ol {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .group {
+        margin-bottom: 50px;
+    }
+
+    .event {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .event-type-name {
+        text-transform: uppercase;
+    }
+
+    .event-title {
+        border-bottom: 1px dotted #444444;
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .event-status {
+        background-color: #444444;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        text-transform: uppercase;
+        top: 0;
+    }
 </style>
 <!-- Styles end -->
 
@@ -403,20 +353,8 @@
     <h2>Allergies</h2>
     <ol id="allergies"></ol>
 
-    <h2>Medications</h2>
-    <ol id="medications"></ol>
-
-    <h2>Immunizations</h2>
-    <ol id="immunizations"></ol>
-
-    <h2>Problems</h2>
-    <ol id="problems"></ol>
-
-    <h2>Procedures</h2>
-    <ol id="procedures"></ol>
-
-    <h2>Encounters</h2>
-    <ol id="encounters"></ol>
+    <h2>Medical History</h2>
+    <div id="medical-history"></div>
 </div>
 </body>
 <!-- End Body Layout -->
@@ -428,16 +366,23 @@
         get: function (elementId) {
             return document.getElementById(elementId);
         },
-        newElem: function (elementName, text) {
+        make: function (elementName, text) {
             var elem = document.createElement(elementName);
             if (text) {
-                elem.appendChild(utils.newText(text));
+                elem.appendChild(utils.makeText(text));
             }
 
             return elem;
         },
-        newText: function (text) {
+        makeText: function (text) {
             return document.createTextNode(text);
+        },
+        extend: function (dest, src) {
+            for (var key in src) {
+                if (src.hasOwnProperty(key)) {
+                    dest[key] = src[key];
+                }
+            }
         }
     };
 
@@ -452,71 +397,191 @@
         document.getElementById("allergies").appendChild(newDiv);
     }
 
-    function dateSortFunc(a, b) {
-        return a.date.value - b.date.value;
+    function makeEventView(event) {
+        var li = utils.make('li');
+        li.className = 'event';
+
+        var typeNameEl = utils.make('div', event.typeName);
+        typeNameEl.className = 'event-type-name';
+        li.appendChild(typeNameEl);
+
+        var titleEl = utils.make('div', event.title);
+        titleEl.className = 'event-title';
+        li.appendChild(titleEl);
+
+        if (event.description) {
+            li.appendChild(utils.make('div', event.description));
+        }
+
+        var statusEl;
+        if (event.status) {
+            statusEl = utils.make('div', event.status);
+            statusEl.className = 'event-status';
+            li.appendChild(statusEl);
+        }
+
+        return li;
     }
 
-    function renderMedications() {
+    function makeGroupView(group) {
+        var i;
+        var event;
+        var container = utils.make('div');
+        container.className = 'group';
+
+        var header = utils.make('h3', group.date.toLocaleDateString());
+        var eventList = utils.make('ol');
+        var events = group.events;
+        for (i = 0; i < events.length; i++) {
+            event = events[i];
+            eventList.appendChild(makeEventView(event));
+        }
+        container.appendChild(header);
+        container.appendChild(eventList);
+        return container;
+    }
+
+    function parseDateValue(dateValue) {
+        // Assumes dateValue is in UTC, formatted as YYYYMMDD.
+        dateValue = String(dateValue);
+        var year = dateValue.substring(0, 4);
+        var month = dateValue.substring(4, 6) - 1;
+        var date = dateValue.substring(6, 8);
+        return new Date(year, month, date); 
+    }
+
+    function makeMedicationEvent(props) {
+        return {
+            typeName: 'Medication',
+            title: props.product.name,
+            description: props.directions.text,
+            status: props.status.name,
+            time: parseDateValue(props.date.value)
+        };
+    }
+
+    function makeImmunizationEvent(props) {
+        return {
+            typeName: 'Immunization',
+            title: props.product.name,
+            description: props.instructions.text,
+            status: props.status.name,
+            time: parseDateValue(props.date.value)
+        };
+    }
+
+    function makeProblemEvent(props) {
+        return {
+            typeName: 'Problem',
+            title: props.problem.name,
+            description: null,
+            status: props.status.name,
+            time: parseDateValue(props.date.value)
+        };
+    }
+
+    function makeProcedureEvent(props) {
+        return {
+            typeName: 'Procedure',
+            title: props.procedure.name,
+            description: null,
+            status: null,
+            time: parseDateValue(props.date.value)
+        };
+    }
+
+    function makeEncounterEvent(props) {
+        return {
+            typeName: 'Activity',
+            title: props.activity.name,
+            description: null,
+            status: null,
+            time: parseDateValue(props.date.value)
+        };
+    }
+
+    function getMergedEvents() {
+        var events = [];
+        var i;
+
         var medications = BlueButton.medications;
-        medications.sort(dateSortFunc);
-        var list = utils.get('medications');
-        var i;
         for (i = 0; i < medications.length; i++) {
-            var medication = medications[i];
-            list.appendChild(utils.newElem('li', medication.product.name));
+            events.push(makeMedicationEvent(medications[i]));
         }
-    }
 
-    function renderImmunizations() {
         var immunizations = BlueButton.immunizations;
-        immunizations.sort(dateSortFunc);
-        var list = utils.get('immunizations');
-        var i;
         for (i = 0; i < immunizations.length; i++) {
-            var immunization = immunizations[i];
-            list.appendChild(utils.newElem('li', immunization.product.name));
+            events.push(makeImmunizationEvent(immunizations[i]));
         }
-    }
 
-    function renderProblems() {
         var problems = BlueButton.problems;
-        problems.sort(dateSortFunc);
-        var list = utils.get('problems');
-        var i;
         for (i = 0; i < problems.length; i++) {
-            var problem = problems[i];
-            list.appendChild(utils.newElem('li', problem.problem.name));
+            events.push(makeProblemEvent(problems[i]));
         }
-    }
 
-    function renderProcedures() {
         var procedures = BlueButton.procedures;
-        procedures.sort(dateSortFunc);
-        var list = utils.get('procedures');
-        var i;
         for (i = 0; i < procedures.length; i++) {
-            var procedure = procedures[i];
-            list.appendChild(utils.newElem('li', procedure.procedure.name));
+            events.push(makeProcedureEvent(procedures[i]));
         }
-    }
 
-    function renderEncounters() {
         var encounters = BlueButton.encounters;
-        encounters.sort(dateSortFunc);
-        var list = utils.get('encounters');
-        var i;
         for (i = 0; i < encounters.length; i++) {
-            var encounter = encounters[i];
-            list.appendChild(utils.newElem('li', encounter.activity.name));
+            events.push(makeEncounterEvent(encounters[i]));
+        }
+
+        return events;
+    }
+
+    function groupEventsByDate(events) {
+        var dates = [];
+        var dateToEvents = {};
+        var event;
+        var eventTime;
+        var date;
+
+        events.sort(function (a, b) {
+            return a.time - b.time;
+        });
+
+        for (i = 0; i < events.length; i++) {
+            event = events[i];
+            eventTime = event.time;
+            date = new Date(
+                eventTime.getUTCFullYear(),
+                eventTime.getUTCMonth(),
+                eventTime.getUTCDate()
+            );
+            if (!dateToEvents[date]) {
+                dates.push(date);
+                dateToEvents[date] = [];
+            }
+
+            dateToEvents[date].push(event);
+        }
+
+        var groups = [];
+        for (i = 0; i < dates.length; i++) {
+            date = dates[i];
+            groups.push({
+                date: date,
+                events: dateToEvents[date]
+            });
+        }
+
+        return groups;
+    }
+
+    function init() {
+        var events = getMergedEvents();
+        var groups = groupEventsByDate(events);
+        var medicalHistory = utils.get('medical-history');
+        var i;
+        for (i = 0; i < groups.length; i++) {
+            medicalHistory.appendChild(makeGroupView(groups[i]));
         }
     }
 
-    renderMedications();
-    renderImmunizations();
-    renderProblems();
-    renderProcedures();
-    renderEncounters();
-
+    init();
 </script>
 
 <!-- End Script -->
