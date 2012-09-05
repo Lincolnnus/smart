@@ -297,18 +297,48 @@
 
 <!-- Styles go here -->
 <style>
+
+    /* Responsive CSS */
+
+    .row:after{
+        clear: both;
+    }
+
+    .row:before,
+    .row:after {
+      display: table;
+      line-height: 0;
+      content: "";
+    }
+
+    .half{
+        width: 50%;
+        float: left;
+    }
+
+    /* Layout Styles */
+
     body {
         background-color: #fff;
-        color: #666;
+        color: #525252;
         font-family: Helvetica, sans-serif;
         font-size: 14px;
         line-height: 1.2;
+        padding: 15px;
     }
 
     ol {
         list-style-type: none;
         padding: 0;
     }
+
+    h2 {
+        font-size: 18px;
+        border-bottom: 1px dotted #444444;
+        padding-bottom: 3px;
+        margin-bottom: 5px;
+    }
+
 
     .group {
         margin-bottom: 50px;
@@ -321,11 +351,12 @@
 
     .event-type-name {
         text-transform: uppercase;
+        font-size: 12px;
     }
 
     .event-title {
         border-bottom: 1px dotted #444444;
-        font-size: 24px;
+        font-size: 20px;
         margin-bottom: 8px;
     }
 
@@ -333,12 +364,66 @@
         background-color: #444444;
         color: #ffffff;
         font-weight: bold;
-        padding: 10px;
+        padding: 9px;
         position: absolute;
         right: 0;
         text-transform: uppercase;
         top: 0;
+        font-size: 12px;
     }
+
+    .lead{
+        margin-bottom: 20px;
+    }
+
+    .name{
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .title{
+        text-align: right;
+    }
+
+    #bbTitle{
+        font-size: 16px;
+        font-weight: bold;
+        color: #83b2ce;
+        margin-top: 10px;
+    }
+
+
+    #demographics{
+        width: 100%;
+    }
+
+    .table-head{
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+
+    .table-detail{
+        vertical-align: text-top;
+    }
+
+    .allergy{
+        padding: 5px;
+        border: 4px solid #666;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        float: left;
+        width: 46%;
+    }
+
+    .allergy-substance{
+        font-size: 16px;
+    }
+
+    .allergy-reaction{
+        font-style: italic;
+    }
+
 </style>
 <!-- Styles end -->
 
@@ -347,14 +432,69 @@
 <!-- Body Layout -->
 <body>
 <div id="content">
-    <div id="firstName">firstName</div>
-    <div id="lastName">lastName</div>
+    <div class="row lead">
+        <div class="half name">
+            <span id="firstName">firstName</span>
+            <span id="lastName">lastName</span>
+        </div>
+        <div class="half title">
+            <div id="bbTitle">Blue Button Health Data</div>
+            <div id="bbDate">September 15, 2012</div>
+        </div>
+    </div>
 
-    <h2>Allergies</h2>
-    <ol id="allergies"></ol>
+    <div class="row">
+        <h2>Demographics</h2>
+    </div>
+    <div class="row">
+        <table id="demographics">
+            <tr class="table-head">
+                <td>Gender</td>
+                <td>Age</td>
+                <td>Blood Type</td>
+                <td>Donor</td>
+                <td>Phone</td>
+                <td>Address</td>
+            </tr>
+            <tr class="table-detail">
+                <td id="gender">Female</td>
+                <td id="age">22</td>
+                <td id="bloodType">AB+</td>
+                <td id="organDonor">Yes</td>
+                <td id="phone">415-555-1234</td>
+                <td id="address">17 Daws Road<br/>Blue Bell, MA 02368</td>
+            </tr>
+        </table>
+    </div>
 
-    <h2>Medical History</h2>
-    <div id="medical-history"></div>
+    <div class="row">
+        <h2>Allergies and Intolerances</h2>
+    </div>
+    <div class="row">
+        <div class="half allergy">
+            <div class="allergy-substance">Penicillin</div>
+            <div class="allergy-reaction">Causes hives</div>
+        </div>
+        <div class="half allergy">
+            <div class="allergy-substance">Penicillin</div>
+            <div class="allergy-reaction">Causes hives</div>
+        </div>
+        <div class="half allergy">
+            <div class="allergy-substance">Penicillin</div>
+            <div class="allergy-reaction">Causes hives</div>
+        </div>
+    </div>
+    <div class="row">
+        <ol id="allergies"></ol>
+    </div>
+
+    <div class="row">
+        <h2>Medical History</h2>
+        <div id="medical-history"></div>
+    </div>
+
+
+
 </div>
 </body>
 <!-- End Body Layout -->
@@ -388,6 +528,11 @@
 
     document.getElementById("firstName").innerHTML = BlueButton.demographics.firstName;
     document.getElementById("lastName").innerHTML = BlueButton.demographics.lastName;
+
+    document.getElementById("gender").innerHTML = BlueButton.demographics.gender;
+    document.getElementById("age").innerHTML = BlueButton.demographics.age;
+    document.getElementById("bloodType").innerHTML = BlueButton.demographics.bloodType;
+    document.getElementById("organDonor").innerHTML = BlueButton.demographics.organDonor;
 
     var i;
     for (i=0; i < BlueButton.allergies.length; i++)
