@@ -408,7 +408,7 @@
     }
 
     .allergy{
-        padding: 5px;
+        padding: 8px;
         border: 4px solid #666;
         margin-right: 5px;
         margin-bottom: 5px;
@@ -476,12 +476,12 @@
             <div class="allergy-reaction">Causes hives</div>
         </div>
         <div class="half allergy">
-            <div class="allergy-substance">Penicillin</div>
-            <div class="allergy-reaction">Causes hives</div>
+            <div class="allergy-substance">Aspirin</div>
+            <div class="allergy-reaction">Wheezing</div>
         </div>
         <div class="half allergy">
-            <div class="allergy-substance">Penicillin</div>
-            <div class="allergy-reaction">Causes hives</div>
+            <div class="allergy-substance">Codeine</div>
+            <div class="allergy-reaction">Nausea</div>
         </div>
     </div>
     <div class="row">
@@ -539,6 +539,10 @@
     {
         var newDiv = document.createElement('div');
         newDiv.innerHTML = BlueButton.allergies[i].substance.name;
+        document.getElementById("allergies").appendChild(newDiv);
+
+        var newDiv = document.createElement('div');
+        newDiv.innerHTML = BlueButton.allergies[i].reaction.name;
         document.getElementById("allergies").appendChild(newDiv);
     }
 
