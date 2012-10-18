@@ -1,5 +1,4 @@
-[
-   {
+  {
       "header":{
          "id":{
             "root":"ede-00161780af43-4acf6c1f-137-0"
@@ -23,11 +22,11 @@
             "phone":[
                {
                   "type":"Home",
-                  "+1 (716) 662-2311"
+                  "value": "+1 (716) 662-2311"
                },
                {
                   "type":"Mobile",
-                  "+1 (716) 983-6312"
+                  "value": "+1 (716) 983-6312"
                }
             ],
             "personInformation":{
@@ -38,17 +37,17 @@
                      "family":"Boyd"
                   },
                   {
-                     "family":
+                     "family": ""
                   }
                ],
                "personAddress":{
                   "use":"HP",
                   "streetAddressLine":[
                      {
-                        "5299 Chestnut Ridge RD"
+                        "value": "5299 Chestnut Ridge RD"
                      },
                      {
-                        "Apt C"
+                        "value": "Apt C"
                      }
                   ],
                   "city":"Orchard Park",
@@ -56,6 +55,7 @@
                   "postalCode":14127,
                   "county": "",
                   "country":"US"
+
                },
                "gender":{
                   "code":"F",
@@ -164,7 +164,7 @@
                   "$":"NKDA"
                },
                "reaction": "",
-               "severity":
+               "severity": ""
             }
          },
          "medications":{
@@ -374,7 +374,7 @@
                      "$":"Tablets"
                   },
                   "medicationInformation":{
-                     "productName":
+                     "productName": ""
                   },
                   "patientInstructions": "",
                   "refills":1
@@ -752,7 +752,7 @@
                      "$":"Tablets ER"
                   },
                   "medicationInformation":{
-                     "productName":
+                     "productName": ""
                   },
                   "patientInstructions": "",
                   "refills":1
@@ -836,7 +836,7 @@
                      "$":"Tablets"
                   },
                   "medicationInformation":{
-                     "productName":
+                     "productName": ""
                   },
                   "patientInstructions": "",
                   "refills":2
@@ -890,7 +890,7 @@
                      "$":"Tablets"
                   },
                   "medicationInformation":{
-                     "productName":
+                     "productName": ""
                   },
                   "patientInstructions": "",
                   "refills":1
@@ -1004,7 +1004,7 @@
                      "$":"Tablets"
                   },
                   "medicationInformation":{
-                     "productName":
+                     "productName": ""
                   },
                   "patientInstructions": "",
                   "refills":4
@@ -1028,7 +1028,7 @@
                      "$":"Tablets"
                   },
                   "medicationInformation":{
-                     "productName":
+                     "productName": ""
                   },
                   "patientInstructions": "",
                   "refills":1
@@ -1232,7 +1232,7 @@
                      "$":"Tablets"
                   },
                   "medicationInformation":{
-                     "productName":
+                     "productName": ""
                   },
                   "patientInstructions": "",
                   "refills":1
@@ -1256,7 +1256,7 @@
                      "$":"Tablets"
                   },
                   "medicationInformation":{
-                     "productName":
+                     "productName": ""
                   },
                   "patientInstructions": "",
                   "refills":6
@@ -1264,7 +1264,7 @@
                {
                   "startStop":{
                      "low":{
-                        "value":00000000
+                        "value":0
                      },
                      "high":{
                         "value":20081023
@@ -1328,7 +1328,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1352,7 +1352,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1376,7 +1376,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1400,7 +1400,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1424,7 +1424,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1448,7 +1448,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1472,7 +1472,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1496,7 +1496,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1520,7 +1520,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1544,7 +1544,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1568,7 +1568,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1592,7 +1592,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1616,7 +1616,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1640,7 +1640,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1664,7 +1664,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1688,7 +1688,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1712,7 +1712,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1736,7 +1736,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1760,7 +1760,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1784,7 +1784,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1808,7 +1808,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1832,7 +1832,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      }
                   ]
                }
@@ -1870,7 +1870,7 @@
                         "code":"N",
                         "codeSystem":"2.16.840.1.113883.5.83"
                      },
-                     "referenceRange":
+                     "referenceRange": ""
                   }
                }
             },
@@ -1908,7 +1908,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1932,7 +1932,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1956,7 +1956,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -1980,7 +1980,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2004,7 +2004,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2028,7 +2028,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2052,7 +2052,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2076,7 +2076,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2100,7 +2100,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2124,7 +2124,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2148,7 +2148,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2172,7 +2172,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2196,7 +2196,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2220,7 +2220,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2244,7 +2244,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2268,7 +2268,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      }
                   ]
                }
@@ -2306,7 +2306,7 @@
                         "code":"N",
                         "codeSystem":"2.16.840.1.113883.5.83"
                      },
-                     "referenceRange":
+                     "referenceRange": ""
                   }
                }
             },
@@ -2343,7 +2343,7 @@
                         "code":"N",
                         "codeSystem":"2.16.840.1.113883.5.83"
                      },
-                     "referenceRange":
+                     "referenceRange": ""
                   }
                }
             },
@@ -2381,7 +2381,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2405,7 +2405,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2429,7 +2429,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2453,7 +2453,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2477,7 +2477,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2501,7 +2501,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2525,7 +2525,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2549,7 +2549,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2573,7 +2573,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2597,7 +2597,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2621,7 +2621,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2645,7 +2645,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2669,7 +2669,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2693,7 +2693,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2717,7 +2717,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2741,7 +2741,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      }
                   ]
                }
@@ -2779,7 +2779,7 @@
                         "code":"N",
                         "codeSystem":"2.16.840.1.113883.5.83"
                      },
-                     "referenceRange":
+                     "referenceRange": ""
                   }
                }
             },
@@ -2817,7 +2817,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2841,7 +2841,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2865,7 +2865,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2889,7 +2889,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2913,7 +2913,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2937,7 +2937,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2961,7 +2961,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -2985,7 +2985,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3009,7 +3009,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3033,7 +3033,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3057,7 +3057,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3081,7 +3081,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3105,7 +3105,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3129,7 +3129,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3153,7 +3153,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3177,7 +3177,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3201,7 +3201,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3225,7 +3225,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3249,7 +3249,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3273,7 +3273,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3297,7 +3297,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3321,7 +3321,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      },
                      {
                         "id":{
@@ -3345,7 +3345,7 @@
                            "code":"N",
                            "codeSystem":"2.16.840.1.113883.5.83"
                         },
-                        "referenceRange":
+                        "referenceRange": ""
                      }
                   ]
                }
@@ -3383,11 +3383,10 @@
                         "code":"N",
                         "codeSystem":"2.16.840.1.113883.5.83"
                      },
-                     "referenceRange":
+                     "referenceRange": ""
                   }
                }
             }
          ]
       }
    }
-]
